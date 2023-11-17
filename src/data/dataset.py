@@ -18,5 +18,5 @@ if __name__ == "__main__":
         filename="/home/melao/Codes/Python/ANN/Treinamento_Perceptron.xls"
     )
     X, Y = dataset.load_from_xls(input_shape=3)
-    print(len(X))
-    print(len(Y))
+    print(X)
+    print(Y)

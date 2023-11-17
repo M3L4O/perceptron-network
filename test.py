@@ -1,6 +1,7 @@
 from src.network.perceptron import Perceptron
 from src.data.dataset import Dataset
 from argparse import ArgumentParser
+from src.eval.metrics import accuracy, precision, recall, f1_score
 
 
 def parser_args():
@@ -18,8 +19,9 @@ def test():
     model = Perceptron(input_shape=args.input_shape)
     model.load("models/weights.npy")
     tp, tn, fp, fn = model.test(X, Y)
-    
-    print(f"{tp=}, {tn=}, {fp=}, {fn=}")
+    print(
+        f"{tp=}, {tn=}, {fp=}, {fn=}\nAcurácia: {accuracy(tp, tn, fp, fn)}\nPrecisão: {precision(tp, fp)}\nRecall: {recall(tp, fn)}\nF1 Score: {f1_score(tp, tn, fp, fn)}"
+    )
 
 
 if __name__ == "__main__":
