@@ -16,7 +16,7 @@ class Perceptron:
         self.bias = -1
 
     def __call__(self, x: np.ndarray) -> int:
-        u = np.matmul(x, self.weights[1:]) + self.weights[0] * self.bias
+        u = x @ self.weights[1:] + self.weights[0] * self.bias
         return self.activation(u)
 
 
